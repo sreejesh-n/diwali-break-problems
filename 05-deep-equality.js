@@ -2,13 +2,17 @@ function isSameType(ref1, ref2) {
   return Array.isArray(ref1) === Array.isArray(ref2);
 }
 
+function areObjectsEqualInSize(ref1, ref2) {
+  return Object.keys(ref1).length !== Object.keys(ref2).length;
+}
+
 function isEqual(ref1, ref2) {
   if (!isSameType(ref1, ref2)) return false;
 
   if (ref1 === ref2) return true;
 
   if (typeof ref1 === "object") {
-    if (Object.keys(ref1).length !== Object.keys(ref2).length) {
+    if (areObjectsEqualInSize(ref1, ref2)) {
       return false;
     }
 
