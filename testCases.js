@@ -22,6 +22,7 @@ function testIntegers() {
 
 function testArrays() {
   test("two empty arrays should be equal", true, [], []);
+  test("two same arrays should be equal", true, [1], [1]);
   test("empty array and filled array should be unequal", false, [], [1, 2, 3]);
   test("two same nested arrays should be equal", true, [[]], [[]]);
   test("two different nested arrays should be unequal", false, [[]], [[1]]);
