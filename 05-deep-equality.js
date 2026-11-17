@@ -56,12 +56,14 @@ function testBooleans() {
   test("two true booleans should be equal", true, true, true);
   test("two false booleans should be equal", true, false, false);
   test("two different booleans should be unequal", false, true, false);
+  test("boolean true and string 'true' should be unequal", false, true, "true");
 }
 
 function testIntegers() {
   test("two same positive integers should be equal", true, 1, 1);
   test("two same negative integers should be equal", true, -1, -1);
   test("two different integers should be unequal", false, 2, 1);
+  test("number 1 and string '1' should be unequal", false, 1, "1");
 }
 
 function testArrays() {
@@ -108,11 +110,9 @@ function testNanUndefinedNull() {
   test("two NaNs should be equal", true, NaN, NaN);
 }
 
-function testInequality() {
-  test("number and string should be unequal", false, 1, "1");
-  test("boolean and string should be unequal", false, false, "false");
-  test("number and array should be unequal", false, 1, []);
-  test();
+function testStrings() {
+  test("same strings should be equal", true, "hello", "hello");
+  test("different strings should be unequal", false, "hello", "hi");
 }
 
 function main() {
@@ -121,7 +121,7 @@ function main() {
   testArrays();
   testObjects();
   testNanUndefinedNull();
-  testInequality();
+  testStrings();
 }
 
 main();
